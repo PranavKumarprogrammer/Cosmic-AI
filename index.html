@@ -350,6 +350,7 @@
                 <div class="hidden md:flex space-x-6 items-center"> <!-- Added items-center for vertical alignment -->
                     <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300" onclick="scrollToSection('hero'); return false;">Home</a>
                     <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300" onclick="setCurrentPage('aboutAI'); return false;">About AI</a>
+                    <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300" onclick="setCurrentPage('plans'); return false;">Plans</a>
                     <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300" onclick="setCurrentPage('capabilitiesAI'); return false;">Capabilities</a>
                     <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300" onclick="setCurrentPage('contact'); return false;">Contact</a>
                     <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300" onclick="setCurrentPage('aboutUs'); return false;">About</a>
@@ -586,7 +587,7 @@
                     
                     <!-- Light (Pranav Sharma) Section -->
                     <div class="mb-10 p-6 rounded-lg shadow-md" style="background-color: var(--bg-section); border: 1px solid var(--border-color);">
-                        <h3 class="text-3xl font-bold text-white mb-4 section-title-glow">Light (Pranav)</h3>
+                        <h3 class="text-3xl font-bold text-white mb-4 section-title-glow">Light (Pranav Sharma)</h3>
                         <p class="text-xl text-gray-300 mb-2">
                             **Role:** Owner & Designer of Cosmic AI
                         </p>
@@ -635,6 +636,94 @@
                 </div>
             </div>
         </div>
+
+        <!-- Plans Page Content -->
+        <div id="plans-page" class="page-content">
+            <div class="flex-grow flex flex-col items-center justify-center p-8 text-center text-gray-100">
+                <div class="relative z-10 max-w-5xl mx-auto bg-gray-900 bg-opacity-80 p-10 rounded-xl shadow-2xl border border-gray-700" style="background-color: var(--bg-card); border-color: var(--border-color);">
+                    <h2 class="text-5xl font-extrabold text-\[\#FF5733\] mb-8 page-title-glow">Our Flexible AI Plans</h2>
+                    <p class="text-lg leading-relaxed mb-10" style="color: var(--text-default);">
+                        Choose the plan that best fits your needs and unlock the full potential of Cosmic AI.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto">
+                        <!-- Free Plan Card -->
+                        <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-\[\#FF5733\] transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between" style="background-color: var(--bg-section); border-color: var(--border-color);">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-4 section-title-glow">Free Tier</h3>
+                                <p class="text-5xl font-extrabold text-\[\#FF5733\] mb-6">Free</p>
+                                <ul class="list-disc list-inside text-lg text-left mx-auto max-w-xs mb-8" style="color: var(--text-default);">
+                                    <li class="mb-2">Basic AI Information</li>
+                                    <li>Standard Reply Speed</li>
+                                </ul>
+                            </div>
+                            <button class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
+                                onclick="setCurrentPage('underDevelopment'); return false;">
+                                Get Started
+                            </button>
+                        </div>
+
+                        <!-- Pro Plan Card -->
+                        <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-\[\#FF5733\] transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between" style="background-color: var(--bg-section); border-color: var(--border-color);">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-4 section-title-glow">Pro Plan</h3>
+                                <p class="text-5xl font-extrabold text-\[\#FF5733\] mb-6">$2<span class="text-xl text-gray-300">/month</span></p>
+                                <ul class="list-disc list-inside text-lg text-left mx-auto max-w-xs mb-8" style="color: var(--text-default);">
+                                    <li class="mb-2">Basic AI Information</li>
+                                    <li class="mb-2">Faster Reply Speed</li>
+                                    <li>Priority Support</li>
+                                </ul>
+                            </div>
+                            <button class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
+                                onclick="setCurrentPage('underDevelopment'); return false;">
+                                Choose Pro
+                            </button>
+                        </div>
+
+                        <!-- Ultimate Plan Card -->
+                        <div class="bg-gray-800 p-8 rounded-lg shadow-xl border border-gray-700 hover:border-\[\#FF5733\] transition-all duration-300 transform hover:-translate-y-2 flex flex-col justify-between" style="background-color: var(--bg-section); border-color: var(--border-color);">
+                            <div>
+                                <h3 class="text-3xl font-bold text-white mb-4 section-title-glow">Ultimate Plan</h3>
+                                <p class="text-5xl font-extrabold text-\[\#FF5733\] mb-6">$5<span class="text-xl text-gray-300">/month</span></p>
+                                <ul class="list-disc list-inside text-lg text-left mx-auto max-w-xs mb-8" style="color: var(--text-default);">
+                                    <li class="mb-2">All Pro Features</li>
+                                    <li class="mb-2">Unlimited Image Generation</li>
+                                    <li>Advanced AI Models Access</li>
+                                </ul>
+                            </div>
+                            <button class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105"
+                                onclick="setCurrentPage('underDevelopment'); return false;">
+                                Go Ultimate
+                            </button>
+                        </div>
+                    </div>
+
+                    <button class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 mt-10"
+                        onclick="setCurrentPage('home'); return false;">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Under Development Page Content -->
+        <div id="underDevelopment-page" class="page-content">
+            <div class="flex-grow flex flex-col items-center justify-center p-8 text-center text-gray-100">
+                <div class="relative z-10 max-w-2xl mx-auto bg-gray-900 bg-opacity-80 p-10 rounded-xl shadow-2xl border border-gray-700" style="background-color: var(--bg-card); border-color: var(--border-color);">
+                    <h2 class="text-5xl font-extrabold text-\[\#FF5733\] mb-6 page-title-glow">Feature Under Development</h2>
+                    <p class="text-2xl font-semibold text-gray-300" style="color: var(--text-default);">
+                        This feature is currently under development.
+                    </p>
+                    <p class="text-lg text-gray-400 mt-4" style="color: var(--text-subtle);">
+                        Payment options will be available soon.
+                    </p>
+                    <button class="bg-\[\#FF5733\] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 mt-8"
+                        onclick="setCurrentPage('home'); return false;">
+                        Back to Home
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -654,8 +743,8 @@
             if (savedTheme) {
                 applyTheme(savedTheme);
             } else {
-                // Default to light mode if no preference
-                applyTheme('light');
+                // Default to dark mode if no preference
+                applyTheme('dark'); 
             }
 
             // Set initial page visibility
