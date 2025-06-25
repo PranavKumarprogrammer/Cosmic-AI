@@ -351,7 +351,8 @@
                 <a href="#" class="text-2xl font-bold text-\[\#FF5733\]" onclick="setCurrentPage('home'); return false;">
                     Cosmic AI
                 </a>
-                <div class="hidden md:flex space-x-6 items-center"> <!-- Added items-center for vertical alignment -->
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex space-x-6 items-center">
                     <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300" onclick="scrollToSection('hero'); return false;">Home</a>
                     <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300" onclick="setCurrentPage('aboutAI'); return false;">About AI</a>
                     <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300" onclick="setCurrentPage('plans'); return false;">Plans</a>
@@ -372,12 +373,21 @@
                 </div>
                 <!-- Mobile menu button (Hamburger icon) -->
                 <div class="md:hidden">
-                    <button class="text-gray-200 focus:outline-none">
+                    <button id="mobile-menu-button" class="text-gray-200 focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
+            </div>
+            <!-- Mobile Navigation Menu (Initially hidden, revealed by JS) -->
+            <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-gray-900 shadow-lg py-4 flex-col items-center space-y-4" style="background-color: var(--nav-bg);">
+                <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300 py-2 w-full text-center" onclick="scrollToSection('hero'); toggleMobileMenu(); return false;">Home</a>
+                <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300 py-2 w-full text-center" onclick="setCurrentPage('aboutAI'); toggleMobileMenu(); return false;">About AI</a>
+                <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300 py-2 w-full text-center" onclick="setCurrentPage('plans'); toggleMobileMenu(); return false;">Plans</a>
+                <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300 py-2 w-full text-center" onclick="setCurrentPage('capabilitiesAI'); toggleMobileMenu(); return false;">Capabilities</a>
+                <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300 py-2 w-full text-center" onclick="setCurrentPage('contact'); toggleMobileMenu(); return false;">Contact</a>
+                <a href="#" class="text-gray-200 hover:text-\[\#FF5733\] transition-colors duration-300 py-2 w-full text-center" onclick="setCurrentPage('aboutUs'); toggleMobileMenu(); return false;">About</a>
             </div>
         </nav>
 
@@ -510,7 +520,7 @@
                     </p>
                     <ul class="list-disc list-inside text-lg text-left mx-auto max-w-2xl mb-6" style="color: var(--text-default);">
                         <li class="mb-2"><strong>Sentiment Analysis:</strong> Extract emotions and opinions from text data.</li>
-                        <li class="mb-2"><strong>Text Summarization:</strong> Condense long documents into concise summaries.</li>
+                        <li class="mb-2"><strong>Text Summarization:</b> Condense long documents into concise summaries.</li>
                         <li class="mb-2"><strong>Chatbots & Virtual Assistants:</strong> Develop intelligent conversational interfaces.</li>
                         <li class="mb-2"><strong>Machine Translation:</strong> Translate text between languages with high accuracy.</li>
                     </ul>
@@ -737,6 +747,7 @@
         let typedTextElement;
         let typingIntervalId;
         let isDarkMode = false; // Track dark mode state
+        let isMobileMenuOpen = false; // New state variable to track mobile menu
 
         document.addEventListener('DOMContentLoaded', (event) => {
             typedTextElement = document.getElementById('typedText');
@@ -754,6 +765,12 @@
             const darkModeToggleBtn = document.getElementById('darkModeToggle');
             if (darkModeToggleBtn) {
                 darkModeToggleBtn.addEventListener('click', toggleDarkMode);
+            }
+
+            // Event listener for the mobile menu button (hamburger icon)
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
             }
         });
 
@@ -775,6 +792,21 @@
                 }
             }, typingSpeed);
         }
+
+        // Function to toggle mobile menu visibility
+        window.toggleMobileMenu = () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                isMobileMenuOpen = !isMobileMenuOpen;
+                if (isMobileMenuOpen) {
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.classList.add('flex'); // Apply flex for column layout
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                }
+            }
+        };
 
         function updatePageVisibility() {
             document.querySelectorAll('.page-content').forEach(page => {
