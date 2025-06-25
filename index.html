@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmic AI</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="cosmicai.png">
     <!-- Tailwind CSS CDN - used for utility classes, converted to native CSS below -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -305,9 +307,18 @@
             width: 24px;
             height: 24px;
         }
+        /* Style for messages */
+        #messageBox {
+            display: none; /* Hidden by default */
+        }
     </style>
 </head>
 <body class="main-galaxy-background">
+    <!-- Message Box for notifications -->
+    <div id="messageBox" class="fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 rounded-lg shadow-lg text-white z-[100] transition-all duration-300 transform opacity-0" style="display: none;">
+        <!-- Messages will appear here -->
+    </div>
+
     <!-- Global Background Galaxy Elements Layer -->
     <div class="fixed-background-elements">
         <div class="star galaxy-star-1"></div>
@@ -726,7 +737,7 @@
         </div>
     </div>
 
-    <script>
+    <script type="module">
         let currentPage = 'home';
         const fullText = "Ask Cosmic AI...";
         const typingSpeed = 100;
@@ -738,19 +749,15 @@
             typedTextElement = document.getElementById('typedText');
             startTypingEffect();
 
-            // Load theme preference from localStorage
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme) {
                 applyTheme(savedTheme);
             } else {
-                // Default to dark mode if no preference
                 applyTheme('dark'); 
             }
 
-            // Set initial page visibility
-            updatePageVisibility();
+            updatePageVisibility(); // Initial page visibility setup
 
-            // Add event listener for the dark mode toggle button
             const darkModeToggleBtn = document.getElementById('darkModeToggle');
             if (darkModeToggleBtn) {
                 darkModeToggleBtn.addEventListener('click', toggleDarkMode);
@@ -787,19 +794,19 @@
             }
         }
 
-        function setCurrentPage(pageName) {
+        window.setCurrentPage = (pageName) => {
             currentPage = pageName;
             updatePageVisibility();
-        }
+        };
 
-        function scrollToSection(id) {
+        window.scrollToSection = (id) => {
             if (currentPage !== 'home') {
                 currentPage = 'home';
                 updatePageVisibility();
                 setTimeout(() => {
                     const section = document.getElementById(id);
                     if (section) {
-                        section.scrollIntoView({ behavior: 'smooth' });
+                        section.scrollView({ behavior: 'smooth' });
                     }
                 }, 100);
             } else {
@@ -808,7 +815,7 @@
                     section.scrollIntoView({ behavior: 'smooth' });
                 }
             }
-        }
+        };
 
         function applyTheme(theme) {
             const moonIcon = document.getElementById('moonIcon');
