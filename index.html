@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosmic AI</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="cosmicai.png">
-    <!-- Tailwind CSS CDN - used for utility classes, converted to native CSS below -->
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -182,23 +180,18 @@
         .overflow-hidden { overflow: hidden; }
         .absolute { position: absolute; }
         .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-        .bg-gradient-to-br { background-image: var(--page-content-overlay-bg); } /* Use variable */
-        .opacity-90 { opacity: var(--page-content-overlay-opacity); } /* Use variable */
-        .z-0 { z-index: 0; }
-        .top-1\/2 { top: 50%; }
-        .left-1\/2 { left: 50%; }
-        .-translate-x-1\/2 { transform: translateX(-50%); }
-        .-translate-y-1\/2 { transform: translateY(-50%); }
-        .w-\[800px\] { width: 800px; }
-        .h-\[800px\] { height: 800px; }
+        /* Responsive Width/Height for Animated Circles */
+        .w-\[min\(80vw\,800px\)\] { width: min(80vw, 800px); }
+        .h-\[min\(80vw\,800px\)\] { height: min(80vw, 800px); }
+        .w-\[min\(60vw\,600px\)\] { width: min(60vw, 600px); }
+        .h-\[min\(60vw\,600px\)\] { height: min(60vw, 600px); }
+
         .rounded-full { border-radius: 9999px; }
         .border-4 { border-width: 4px; }
         .border-\[\#FF5733\] { border-color: var(--accent-color); }
         .border-opacity-20 { border-color: rgba(255, 87, 51, 0.2); }
         .animate-spin-slow { animation: spin-slow 60s linear infinite; }
         .md\:block { display: block; }
-        .w-\[600px\] { width: 600px; }
-        .h-\[600px\] { height: 600px; }
         .border-opacity-30 { border-color: rgba(255, 87, 51, 0.3); }
         .animate-spin-slow-reverse { animation: spin-slow-reverse 80s linear infinite; }
         .text-5xl { font-size: 3rem; line-height: 1; }
@@ -394,8 +387,8 @@
             <header id="hero" class="relative flex-grow flex items-center justify-center text-center p-8 overflow-hidden">
                 <div class="absolute inset-0 bg-gradient-to-br from-\[\#1a2b47\] to-blue-900 opacity-90 z-0" style="background-image: var(--page-content-overlay-bg); opacity: var(--page-content-overlay-opacity);"></div>
                 
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border-4 border-\[\#FF5733\] border-opacity-20 animate-spin-slow z-0 hidden md:block"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border-4 border-\[\#FF5733\] border-opacity-30 animate-spin-slow-reverse z-0 hidden md:block"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(80vw,800px)] h-[min(80vw,800px)] rounded-full border-4 border-\[\#FF5733\] border-opacity-20 animate-spin-slow z-0 hidden md:block"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(60vw,600px)] h-[min(60vw,600px)] rounded-full border-4 border-\[\#FF5733\] border-opacity-30 animate-spin-slow-reverse z-0 hidden md:block"></div>
 
                 <div class="relative z-10 max-w-4xl mx-auto">
                     <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg animate-heading-glow">
@@ -806,7 +799,7 @@
                 setTimeout(() => {
                     const section = document.getElementById(id);
                     if (section) {
-                        section.scrollView({ behavior: 'smooth' });
+                        section.scrollIntoView({ behavior: 'smooth' }); 
                     }
                 }, 100);
             } else {
